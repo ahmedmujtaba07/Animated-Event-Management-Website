@@ -53,7 +53,6 @@ header, .navbar {
   text-decoration: none !important;
   border-bottom: none !important;
   outline: none !important;
-  color: inherit !important;
 }
 
 /* SVG Tick icon alignment */
@@ -63,7 +62,7 @@ header, .navbar {
   flex-shrink: 0 !important;
 }
 
-/* THE REAL NEON CYAN GRADIENT COLOR */
+/* 🎨 'Event' TEXT COLOR (Home Page Sharp Neon Cyan Shading) */
 .logo h2,
 .logo a h2,
 .logo a.logo-link h2 {
@@ -75,10 +74,21 @@ header, .navbar {
   display: inline-block !important;
   text-decoration: none !important;
   
-  /* Home page wala sharp neon cyan glow shading */
-  background: linear-gradient(135deg, #ffffff 30%, #00ffff 100%) !important;
+  /* Gradient clipping logic fixed */
+  background: linear-gradient(135deg, #ffffff 60%, var(--accent) 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
+  color: transparent !important; 
+}
+
+/* 🎨 'Hub' TEXT COLOR (Exact Purple/Magenta Blend From Home Page) */
+.logo h2 span,
+.logo a.logo-link h2 span {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-purple) 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block !important;
 }
 
 /* Navigation Menu Links */
