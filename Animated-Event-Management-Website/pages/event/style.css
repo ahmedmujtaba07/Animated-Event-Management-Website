@@ -68,8 +68,8 @@ header, .navbar {
 .logo a.logo-link h2 {
   margin: 0 !important;
   padding: 0 !important;
-  font-size: 1.6rem !important;
-  font-weight: 800 !important;
+  font-size: 1.5rem !important;      /* 1.6rem se 1.5rem kar diya */
+  font-weight: 700 !important;      /* 800 se hata kar 700 bold kiya */
   letter-spacing: 0.5px !important;
   display: inline-block !important;
   text-decoration: none !important;
@@ -81,9 +81,11 @@ header, .navbar {
   color: transparent !important;
 }
 
-/* Agar aapne span lagaya hai to dono matching rahengi */
+/* Logo Span Text (Exact Home Page Match) */
 .logo h2 span,
 .logo a.logo-link h2 span {
+  font-size: 1.5rem !important;      /* Size matching */
+  font-weight: 700 !important;      /* Weight matching */
   background: linear-gradient(45deg, var(--accent), var(--accent-purple)) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
