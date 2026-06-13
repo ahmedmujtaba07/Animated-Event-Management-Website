@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
         counters.forEach(counter => {
             const updateCount = () => {
                 const target = parseInt(counter.getAttribute('data-target'));
-                const count = parseInt(counter.innerText);
+                
+                // FIXED: Agar innerText khali ho ya number na ho, to ye 0 se shuru karega
+                const count = parseInt(counter.innerText) || 0; 
                 
                 // Dynamic increment taake saare numbers ek sath target hit karein
                 const increment = Math.ceil(target / speed);
