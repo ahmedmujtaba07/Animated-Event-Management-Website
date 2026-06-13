@@ -39,12 +39,24 @@
             width: 100%;
             z-index: 1000;
         }
-        .logo { display: flex; align-items: center; gap: 10px; }
-        .logo h2 {
-            font-size: 1.5rem; font-weight: 700;
-            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+        .logo { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+/* Yeh naya block add kiya hai taake link lagne par design kharab na ho */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.logo h2 {
+    font-size: 1.5rem; font-weight: 700;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
         .nav-links { display: flex; list-style: none; gap: 30px; }
         .nav-links a {
             color: var(--text-main); text-decoration: none;
@@ -128,17 +140,19 @@
 
     <nav class="navbar">
         <div class="logo">
-            <svg viewBox="0 0 100 100" width="40" height="40">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad)" stroke-width="5"/>
-                <path d="M35 50 L45 60 L65 35" stroke="url(#grad)" stroke-width="5" fill="none" stroke-linecap="round"/>
-                <defs>
-                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#00ffff"/>
-                        <stop offset="100%" style="stop-color:#8b5cf6"/>
-                    </linearGradient>
-                </defs>
-            </svg>
-            <h2>EventHub</h2>
+            <a href="index.html">
+                <svg viewBox="0 0 100 100" width="40" height="40">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad)" stroke-width="5"/>
+                    <path d="M35 50 L45 60 L65 35" stroke="url(#grad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                    <defs>
+                        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00ffff"/>
+                            <stop offset="100%" style="stop-color:#8b5cf6"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <h2>EventHub</h2>
+            </a>
         </div>
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html" class="active">Home</a></li>
