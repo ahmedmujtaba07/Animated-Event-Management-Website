@@ -10,7 +10,8 @@ const eventData = [
     id: 2,
     title: "Modern Art Expo",
     cat: "art",
-    img: "https://images.unsplash.com/photo-1499781350541-7783f6c6a0c8?q=80&w=800",
+    // FIXED: Updated with a fresh working high-quality Unsplash art image link
+    img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=800",
     desc: "Experience the journey of digital transformation through the eyes of local and global sculptors.",
   },
   {
@@ -187,7 +188,7 @@ function autoSlide() {
   slides[currentSlide].classList.add("active");
 }
 
-// SAFE THEME TOGGLE: code crash nahi karega agar button na mile
+// Safe Theme Toggle
 const themeBtn = document.getElementById("theme-btn");
 if (themeBtn) {
   themeBtn.addEventListener("click", () => {
