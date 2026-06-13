@@ -23,55 +23,64 @@ body {
 }
 
 /* ==========================================================================
-   NAVBAR & HEADER STYLES
+   HEADER & NAVBAR STYLES (Exact Home Page Match)
    ========================================================================== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 5%;
-  background: var(--card-bg);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+header, .navbar {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 1rem 5% !important;
+  background: var(--card-bg) !important;
+  border-bottom: 1px solid var(--border) !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 1000 !important;
 }
 
-/* Fixed Logo Container - Underline removed, flex layout for perfect left-align */
-.logo a.logo-link,
-.logo a.logo-link:hover,
-.logo a.logo-link h2 {
-  text-decoration: none !important;
-  border-bottom: none !important;
-  outline: none !important;
+/* Logo container styling to prevent vertical breaking */
+.logo {
+  display: flex !important;
+  align-items: center !important;
 }
 
+/* Strictly removes the blue underline and fixes spacing */
+.logo a,
+.logo a:hover,
 .logo a.logo-link {
   display: flex !important;
   align-items: center !important;
   gap: 10px !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  color: inherit !important;
 }
 
-.logo a.logo-link svg {
+/* SVG Tick icon alignment */
+.logo a svg {
   display: inline-block !important;
   vertical-align: middle !important;
   flex-shrink: 0 !important;
 }
 
-/* Yahan text par neon cyan / bright gradient styling apply ki hai */
+/* THE REAL NEON CYAN GRADIENT COLOR */
+.logo h2,
+.logo a h2,
 .logo a.logo-link h2 {
   margin: 0 !important;
   padding: 0 !important;
   font-size: 1.6rem !important;
   font-weight: 800 !important;
   letter-spacing: 0.5px !important;
+  display: inline-block !important;
+  text-decoration: none !important;
   
-  /* Modern Webkit Gradient for Text */
-  background: linear-gradient(135deg, #ffffff 40%, var(--accent) 100%) !important;
+  /* Home page wala sharp neon cyan glow shading */
+  background: linear-gradient(135deg, #ffffff 30%, #00ffff 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
-  display: inline-block !important;
 }
+
 /* Navigation Menu Links */
 .nav-links {
   display: flex;
@@ -270,7 +279,7 @@ main {
 
 .event-card {
   background: var(--card-bg);
-  border: 1px solid rgba(255, 255, 255, 0.05); /* Yahan sirf 'border' aayega */
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   overflow: hidden;
   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -282,9 +291,10 @@ main {
 }
 
 .c-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+  width: 100% !important;
+  height: 200px !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
 .c-title {
