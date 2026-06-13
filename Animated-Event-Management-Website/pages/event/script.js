@@ -97,6 +97,7 @@ const categoryFilters = document.querySelectorAll(".pill");
 // 1. Render Hero
 function initHero() {
   const hero = document.getElementById("hero-slider");
+  if (!hero) return;
   hero.innerHTML = heroData
     .map(
       (item, i) => `
@@ -112,6 +113,7 @@ function initHero() {
 
 // 2. Render Events
 function renderEvents(list) {
+  if (!container) return;
   if (list.length === 0) {
     container.innerHTML = `<h2 class="section-title">Popular Events</h2><p style="text-align:center; padding: 50px;">No events match your criteria.</p>`;
     return;
@@ -140,8 +142,10 @@ function renderEvents(list) {
 
 // 3. Filter Logic
 function updateDisplay() {
+  if (!searchInput) return;
   const term = searchInput.value.toLowerCase();
-  const activeCat = document.querySelector(".pill.active").dataset.cat;
+  const activePill = document.querySelector(".pill.active");
+  const activeCat = activePill ? activePill.dataset.cat : "all";
 
   const filtered = eventData.filter((e) => {
     const matchesSearch = e.title.toLowerCase().includes(term);
@@ -152,35 +156,44 @@ function updateDisplay() {
 }
 
 // Listeners
-searchInput.addEventListener("input", updateDisplay);
+if (searchInput) {
+  searchInput.addEventListener("input", updateDisplay);
+}
 
 categoryFilters.forEach((pill) => {
   pill.addEventListener("click", () => {
     categoryFilters.forEach((p) => p.classList.remove("active"));
     pill.classList.add("active");
-    categorySelect.value = pill.dataset.cat;
+    if (categorySelect) categorySelect.value = pill.dataset.cat;
     updateDisplay();
   });
 });
 
-categorySelect.addEventListener("change", (e) => {
-  const val = e.target.value;
-  document.querySelector(`.pill[data-cat="${val}"]`).click();
-});
+if (categorySelect) {
+  categorySelect.addEventListener("change", (e) => {
+    const val = e.target.value;
+    const targetPill = document.querySelector(`.pill[data-cat="${val}"]`);
+    if (targetPill) targetPill.click();
+  });
+}
 
 // Slider Logic
 let currentSlide = 0;
 function autoSlide() {
   const slides = document.querySelectorAll(".slide");
+  if (slides.length === 0) return;
   slides[currentSlide].classList.remove("active");
   currentSlide = (currentSlide + 1) % slides.length;
   slides[currentSlide].classList.add("active");
 }
 
-// Theme
-document.getElementById("theme-btn").addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
+// SAFE THEME TOGGLE: code crash nahi karega agar button na mile
+const themeBtn = document.getElementById("theme-btn");
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+  });
+}
 
 // Init
 initHero();
