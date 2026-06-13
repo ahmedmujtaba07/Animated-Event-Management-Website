@@ -1,0 +1,38 @@
+
+[data-aos] {
+  pointer-events: none;
+}
+[data-aos].aos-animate {
+  pointer-events: auto;
+}
+[data-aos][data-aos][data-aos-easing=ease-out-cubic], body[data-aos-easing=ease-out-cubic] [data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+[data-aos^=fade][data-aos^=fade] {
+  opacity: 0;
+  transition-property: opacity, transform;
+}
+[data-aos^=fade][data-aos^=fade].aos-animate {
+  opacity: 1;
+  transform: translateZ(0);
+}
+[data-aos=fade-up] {
+  transform: translateY(100px);
+}
+[data-aos=fade-up].aos-animate {
+  transform: translateY(0);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+.reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
+}
+.will-animate {
+    will-change: transform, opacity;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fully Responsive Event Details </title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-ambient"></div>
+<div class="bg-grid"></div>
+
+<nav class="navbar">
+  <div class="nav-logo">EVENTHUB</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li><li><a href="#">Events</a></li>
+    <li><a href="#" class="active">Details</a></li><li><a href="#">Gallery</a></li><li><a href="#">Contact</a></li>
+  </ul>
+  <button class="nav-btn">REGISTER</button>
+  <button class="hamburger" id="ham" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#">HOME</a><a href="#">EVENTS</a><a href="#" style="color:var(--cyan)">DETAILS</a>
+  <a href="#">GALLERY</a><a href="#">CONTACT</a>
+  <button class="nav-btn">⬡ REGISTER NOW</button>
+</div>
+
+<div class="hero-banner">
+  <div class="hero-bg">
+    <svg class="hero-svg" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <g stroke="rgba(0,229,255,0.06)" stroke-width="1" fill="none">
+        <path d="M0,180 L150,180 L150,90 L350,90 L350,180 L550,180 L550,270 L750,270 L750,180 L950,180 L950,90 L1200,90"/>
+        <circle cx="150" cy="180" r="5" fill="rgba(0,229,255,0.3)" stroke="none"/>
+        <circle cx="550" cy="180" r="8" fill="rgba(108,43,217,0.5)" stroke="none"/>
+        <circle cx="750" cy="270" r="5" fill="rgba(155,77,255,0.4)" stroke="none"/>
+        <circle cx="950" cy="180" r="5" fill="rgba(0,229,255,0.3)" stroke="none"/>
+      </g>
+      <g stroke="rgba(108,43,217,0.04)" stroke-width="1" fill="none">
+        <line x1="250" y1="0" x2="250" y2="360"/>
+        <line x1="600" y1="0" x2="600" y2="360"/>
+        <line x1="900" y1="0" x2="900" y2="360"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-tag"><div class="hero-dot"></div>TECH CONFERENCE</div>
+</div>
+
+<div class="container">
+
+  <!-- Event Info + Sidebar -->
+  <div class="event-info">
+    <div>
+      <div class="event-category">⬡ Technology · Innovation</div>
+      <h1 class="event-title">Future of AI &<br/>Innovation Summit 2025</h1>
+      <div class="event-meta">
+        <div class="meta-chip"><span class="mi">📅</span>June 15, 2025</div>
+        <div class="meta-chip"><span class="mi">⏰</span>9:00 AM – 6:00 PM</div>
+        <div class="meta-chip"><span class="mi">📍</span>Expo Center, Lahore</div>
+        <div class="meta-chip"><span class="mi">👥</span>300 Attendees</div>
+      </div>
+      <div class="divider"></div>
+      <p class="slabel">About This Event</p>
+      <div class="event-description">
+        <p>Join us for the most anticipated technology conference of the year — a full-day deep dive into the latest advancements in AI, machine learning, and digital innovation.</p>
+        <p>Expect inspiring keynotes, hands-on workshops, live demos, and unmatched networking opportunities with Pakistan's most innovative minds.</p>
+      </div>
+      <div class="tag-list">
+        <span class="tag">#ArtificialIntelligence</span><span class="tag">#MachineLearning</span>
+        <span class="tag">#Innovation</span><span class="tag">#TechConference</span><span class="tag">#Networking</span>
+      </div>
+    </div>
+    <div class="event-sidebar">
+      <div class="sidebar-card">
+        <div class="sidebar-header"><div class="sidebar-price">PKR 2,500 <span>/ticket</span></div><div style="font-size:12px;color:var(--muted);margin-top:4px">Early bird ends June 1</div></div>
+        <div class="sidebar-body">
+          <div class="info-row"><div class="info-icon">📅</div><div><div class="info-label">Date</div><div class="info-value">Sunday, June 15, 2025</div></div></div>
+          <div class="info-row"><div class="info-icon">⏰</div><div><div class="info-label">Time</div><div class="info-value">9:00 AM – 6:00 PM PKT</div></div></div>
+          <div class="info-row"><div class="info-icon">📍</div><div><div class="info-label">Venue</div><div class="info-value">Expo Center, Hall 3<br/><span style="font-size:12px;color:var(--muted)">Lahore, Punjab</span></div></div></div>
+          <div class="info-row"><div class="info-icon">🎟</div><div style="width:100%"><div class="info-label">Availability</div><div class="info-value">120 of 300 seats</div><div class="seats-bar-bg"><div class="seats-bar-fill"></div></div><div class="seats-note">⚡ 60% sold — book fast!</div></div></div>
+          <button class="btn-register">⬡ REGISTER NOW</button>
+          <button class="btn-calendar">◈ ADD TO CALENDAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHEDULE -->
+  <div class="fsection" id="schedule">
+    <p class="slabel">Event Program</p>
+    <h2 class="sh">Event <span>Schedule</span></h2>
+    <p class="ssub">Full day program · June 15, 2025 · Expo Center, Lahore</p>
+    <div class="sched-tabs">
+      <button class="sched-tab active">DAY 01 · JUNE 15</button>
+      <button class="sched-tab">WORKSHOPS</button>
+      <button class="sched-tab">NETWORKING</button>
+    </div>
+    <div>
+      <div class="sched-item hl"><div class="sched-time hl">09:00 AM</div><div><div class="sched-badge kn">Keynote</div><div class="sched-title">Opening Ceremony & Welcome Address</div><div class="sched-desc">Setting the tone for a transformative day — "AI Without Limits."</div></div><div class="sched-dur">60 MIN</div></div>
+      <div class="sched-item"><div class="sched-time">10:00 AM</div><div><div class="sched-badge kn">Keynote</div><div class="sched-title">The Future of Generative AI in Enterprise</div><div class="sched-desc">How LLMs are transforming business operations and customer experience.</div></div><div class="sched-dur">45 MIN</div></div>
+      <div class="sched-item"><div class="sched-time">11:00 AM</div><div><div class="sched-badge pn">Panel</div><div class="sched-title">Building Ethical AI: Challenges & Opportunities</div><div class="sched-desc">Multi-perspective panel on responsible AI development and governance.</div></div><div class="sched-dur">60 MIN</div></div>
+      <div class="sched-item"><div class="sched-time">12:30 PM</div><div><div class="sched-badge br">Break</div><div class="sched-title">Lunch Break & Networking</div><div class="sched-desc">Catered lunch with structured networking tables.</div></div><div class="sched-dur">60 MIN</div></div>
+      <div class="sched-item"><div class="sched-time">01:30 PM</div><div><div class="sched-badge wk">Workshop</div><div class="sched-title">Hands-On: Building Your First AI App</div><div class="sched-desc">Build a real AI-powered app using OpenAI and Anthropic APIs.</div></div><div class="sched-dur">90 MIN</div></div>
+      <div class="sched-item hl"><div class="sched-time hl">03:30 PM</div><div><div class="sched-badge kn">Keynote</div><div class="sched-title">Pakistan's AI Startup Ecosystem</div><div class="sched-desc">A data-driven look at the local AI landscape and the road ahead.</div></div><div class="sched-dur">45 MIN</div></div>
+      <div class="sched-item"><div class="sched-time">05:00 PM</div><div><div class="sched-badge br">Closing</div><div class="sched-title">Awards, Closing Remarks & Photo Session</div><div class="sched-desc">Recognizing outstanding contributors and closing the summit.</div></div><div class="sched-dur">60 MIN</div></div>
+    </div>
+  </div>
+
+  <!-- SPEAKERS -->
+  <div class="fsection" id="speakers">
+    <p class="slabel">Our Experts</p>
+    <h2 class="sh">Meet the <span>Speakers</span></h2>
+    <p class="ssub">Industry leaders and innovators sharing their knowledge</p>
+    <div class="spk-grid">
+      <div class="spk-card"><div class="spk-banner bk"></div><div class="spk-top"><div class="spk-avatar">SR</div><div class="spk-badge kn">KEYNOTE</div></div><div class="spk-body"><div class="spk-name">SARA RAZA</div><div class="spk-role">AI Research Lead</div><div class="spk-co">Google Pakistan</div><div class="spk-bio">PhD from LUMS, postdoc at Stanford. 40+ papers in NeurIPS and ICML. Expert in LLM alignment.</div><div class="spk-tags"><span class="spk-tag">Generative AI</span><span class="spk-tag">LLMs</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button><button class="soc-btn">𝕏</button></div><div class="spk-time">Session: <strong>10:00 AM</strong></div></div></div></div>
+      <div class="spk-card"><div class="spk-banner tc"></div><div class="spk-top"><div class="spk-avatar">FA</div><div class="spk-badge kn">KEYNOTE</div></div><div class="spk-body"><div class="spk-name">FATIMA ASLAM</div><div class="spk-role">Founder & CEO</div><div class="spk-co">InnovatePK</div><div class="spk-bio">Forbes 30 Under 30. Founded Pakistan's first AI accelerator. Mentored 200+ founders.</div><div class="spk-tags"><span class="spk-tag">Startups</span><span class="spk-tag">Ventures</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button><button class="soc-btn">𝕏</button></div><div class="spk-time">Session: <strong>03:30 PM</strong></div></div></div></div>
+      <div class="spk-card"><div class="spk-banner bk"></div><div class="spk-top"><div class="spk-avatar">AK</div><div class="spk-badge kn">OPENING</div></div><div class="spk-body"><div class="spk-name">DR. AHMED KHAN</div><div class="spk-role">Event Director</div><div class="spk-co">AI Summit PK</div><div class="spk-bio">20 years in AI policy and industry development. Advisor to Pakistan Ministry of IT.</div><div class="spk-tags"><span class="spk-tag">Policy</span><span class="spk-tag">Education</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button></div><div class="spk-time">Session: <strong>09:00 AM</strong></div></div></div></div>
+      <div class="spk-card"><div class="spk-banner wk"></div><div class="spk-top"><div class="spk-avatar">MH</div><div class="spk-badge wk">WORKSHOP</div></div><div class="spk-body"><div class="spk-name">MUHAMMAD HASSAN</div><div class="spk-role">CTO</div><div class="spk-co">TechStudio PK</div><div class="spk-bio">Full-stack engineer turned CTO. Built AI SaaS used by 50,000+ users. Workshop leader.</div><div class="spk-tags"><span class="spk-tag">APIs</span><span class="spk-tag">Dev Tools</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button></div><div class="spk-time">Session: <strong>01:30 PM</strong></div></div></div></div>
+      <div class="spk-card"><div class="spk-banner pn"></div><div class="spk-top"><div class="spk-avatar">ZM</div><div class="spk-badge pn">PANEL</div></div><div class="spk-body"><div class="spk-name">ZAIN MALIK</div><div class="spk-role">Senior ML Engineer</div><div class="spk-co">Meta</div><div class="spk-bio">Fairness and interpretability at Meta. Advocate for transparent AI governance.</div><div class="spk-tags"><span class="spk-tag">Ethics</span><span class="spk-tag">ML</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button><button class="soc-btn">𝕏</button></div><div class="spk-time">Session: <strong>11:00 AM</strong></div></div></div></div>
+      <div class="spk-card"><div class="spk-banner pn"></div><div class="spk-top"><div class="spk-avatar">NI</div><div class="spk-badge pn">PANEL</div></div><div class="spk-body"><div class="spk-name">NADIA IQBAL</div><div class="spk-role">Product Director</div><div class="spk-co">Microsoft APAC</div><div class="spk-bio">15 years of product leadership. Leads AI-first strategy for APAC. Champion of inclusive UX.</div><div class="spk-tags"><span class="spk-tag">Product</span><span class="spk-tag">Strategy</span></div><div class="spk-footer"><div class="soc-row"><button class="soc-btn">in</button></div><div class="spk-time">Session: <strong>11:00 AM</strong></div></div></div></div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-text">
+      <h3>READY TO JOIN THE SUMMIT?</h3>
+      <p>Limited seats available. Early bird pricing ends June 1, 2025.</p>
+    </div>
+    <div class="cta-btns">
+      <button class="cta-btn-p">⬡ REGISTER — PKR 2,500</button>
+      <button class="cta-btn-s">◈ ADD TO CALENDAR</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

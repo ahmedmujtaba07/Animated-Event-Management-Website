@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventHub | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --neon-cyan: #00ffff;
+            --neon-purple: #8b5cf6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; }
+        .logo h2 {
+            font-size: 1.5rem; font-weight: 700;
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; list-style: none; gap: 30px; }
+        .nav-links a {
+            color: var(--text-main); text-decoration: none;
+            font-weight: 500; transition: color 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--neon-cyan); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+        .hamburger span { width: 25px; height: 3px; background: var(--neon-cyan); transition: all 0.3s ease; }
+        .hero {
+            height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(139,92,246,0.2) 0%, rgba(15,23,42,1) 70%);
+            padding-top: 80px;
+        }
+        .hero-content { max-width: 800px; padding: 0 20px; }
+        .hero-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero-title span {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle { font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .btn-primary {
+            background: linear-gradient(45deg, var(--neon-cyan), var(--neon-purple));
+            color: #000; box-shadow: 0 4px 15px rgba(0,255,255,0.3);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,255,255,0.5); }
+        .section-title { font-size: 2.25rem; text-align: center; margin-bottom: 40px; font-weight: 700; }
+        .section-title span { color: var(--neon-cyan); }
+        .slider-container { display: flex; gap: 20px; overflow-x: auto; padding: 20px 0; scroll-behavior: smooth; }
+        .slider-container::-webkit-scrollbar { display: none; }
+        .slide { min-width: 300px; flex: 1; }
+        .slide-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px; padding: 30px;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+        }
+        .slide-card:hover { border-color: var(--neon-cyan); }
+        .slide-card h3 { margin-bottom: 10px; font-size: 1.4rem; }
+        .slide-card p { color: var(--neon-purple); font-weight: 500; margin-bottom: 15px; }
+        .slide-card span { color: var(--text-muted); font-size: 0.9rem; }
+        .slider-controls { display: flex; justify-content: center; gap: 20px; margin-top: 30px; }
+        .slider-controls button {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-main);
+            width: 50px; height: 50px;
+            border-radius: 50%; font-size: 1.2rem;
+            transition: all 0.3s ease; cursor: pointer;
+        }
+        .slider-controls button:hover { background: var(--neon-cyan); color: #000; border-color: var(--neon-cyan); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; margin-top: 20px; }
+        .stat-card {
+            background: var(--card-bg); border-radius: 16px;
+            padding: 40px 20px; text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .stat-number { font-size: 3rem; font-weight: 800; color: var(--neon-cyan); margin-bottom: 10px; }
+        .stat-card p { color: var(--text-muted); text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.5rem; }
+            .nav-links {
+                display: none; flex-direction: column;
+                position: absolute; top: 75px; left: 0;
+                width: 100%; background: rgba(15,23,42,0.95);
+                backdrop-filter: blur(12px); padding: 30px 0;
+                text-align: center; gap: 20px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <svg viewBox="0 0 100 100" width="40" height="40">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad)" stroke-width="5"/>
+                <path d="M35 50 L45 60 L65 35" stroke="url(#grad)" stroke-width="5" fill="none" stroke-linecap="round"/>
+                <defs>
+                    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#00ffff"/>
+                        <stop offset="100%" style="stop-color:#8b5cf6"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <h2>EventHub</h2>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="pages/event/index.html">Events</a></li>
+            <li><a href="pages/gallery.html">Gallery</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Amazing <span>Events</span></h1>
+            <p class="hero-subtitle">Join the best events in your city. Network, Learn, and Grow!</p>
+            <a href="pages/event/index.html" class="btn btn-primary">Explore Events →</a>
+        </div>
+    </section>
+
+    <section class="event-slider-section">
+        <div class="container">
+            <h2 class="section-title">Upcoming <span>Highlights</span></h2>
+            <div class="slider-container" id="eventSlider">
+                <div class="slide">
+                    <div class="slide-card">
+                        <h3>Music Festival 2026</h3>
+                        <p>June 15, 2026</p>
+                        <span>📍 New York</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-card">
+                        <h3>Tech Conference</h3>
+                        <p>July 20, 2026</p>
+                        <span>📍 Malaysia</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-card">
+                        <h3>Cultural Fusion Event</h3>
+                        <p>October 9, 2026</p>
+                        <span>📍 Pakistan</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-card">
+                        <h3>AI & Future Tech Summit</h3>
+                        <p>March 5, 2026</p>
+                        <span>📍 Germany</span>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-card">
+                        <h3>Art Exhibition</h3>
+                        <p>August 5, 2026</p>
+                        <span>📍 India</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button id="prevBtn">◀</button>
+                <button id="nextBtn">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="statistics-section">
+        <div class="container">
+            <h2 class="section-title">Our <span>Impact</span></h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" data-target="500">0</div>
+                    <p>Events Completed</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="10000">0</div>
+                    <p>Happy Attendees</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" data-target="50">0</div>
+                    <p>Expert Speakers</p>
